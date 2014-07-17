@@ -6,7 +6,7 @@
 Summary:	Rake-based Ruby C Extension task generator
 Name:		ruby-%{gemname}
 Version:	0.8.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	http://gems.rubyforge.org/gems/%{gemname}-%{version}.gem
