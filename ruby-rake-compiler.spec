@@ -4,6 +4,7 @@
 
 %define gemname rake-compiler
 Summary:	Rake-based Ruby C Extension task generator
+Summary(pl.UTF-8):	Generator zadań Rake'a do budowania rozszerzeń języka Ruby napisanych w C
 Name:		ruby-%{gemname}
 Version:	0.8.3
 Release:	2
@@ -36,18 +37,35 @@ extensions, simplifiying the code and reducing the duplication.
 It follows *convention over configuration* and set an standarized
 structure to build and package C extensions in your gems.
 
-This is the result of expriences dealing with several Gems that
+This is the result of experiences dealing with several Gems that
 required native extensions across platforms and different user
 configurations where details like portability and clarity of code were
 lacking.
 
+%description -l pl.UTF-8
+rake-compiler ma na celu pomoc twórcom rozszerzeń Gem przy obsłudze
+rozszerzeń języka Ruby napisanych w C, upraszczając kod i zmniejszając
+duplikację.
+
+Jest zgodny z paradygmatem "konwencja ponad konfiguracją" i tworzy
+ustandaryzowaną strukturę do budowania i pakietowania rozszerzeń w C
+do plików gem.
+
+Moduł jest wynikiem doświadczeń przy różnych Gemach, wymagających
+natywnych rozszerzeń na różnych platformach, z różną konfiguracją
+użytkownika, gdzie zabrakło przenośności i czytelności kodu.
+
 %package doc
-Summary:	Documentation for %{name}
+Summary:	Documentation for Ruby rake-compiler module
+Summary(pl.UTF-8):	Dokumentacja modułu języka Ruby rake-compiler
 Group:		Documentation
 Requires:	%{name} = %{version}-%{release}
 
 %description doc
-This package contains documentation for %{name}.
+This package contains documentation for Ruby rake-compiler module.
+
+%description doc -l pl.UTF-8
+Ten pakiet zawiera dokumentację do modułu języka Ruby rake-compiler.
 
 %prep
 %setup -q -n %{gemname}-%{version}
@@ -66,7 +84,7 @@ sed -i -e 's|gem |# gem|' Isolate
 ruby -Ilib -S rspec spec/
 
 # back to the original
-mv -f Isolate{.orig,}
+%{__mv} Isolate{.orig,}
 %endif
 
 %install
