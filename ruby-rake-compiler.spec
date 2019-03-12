@@ -1,4 +1,4 @@
-#
+    #
 # Conditional build:
 %bcond_with	tests		# build without tests
 
@@ -6,15 +6,13 @@
 Summary:	Rake-based Ruby C Extension task generator
 Summary(pl.UTF-8):	Generator zadań Rake'a do budowania rozszerzeń języka Ruby napisanych w C
 Name:		ruby-%{gemname}
-Version:	0.8.3
-Release:	2
+Version:	1.0.7
+Release:	1
 License:	MIT
 Group:		Development/Languages
-Source0:	http://gems.rubyforge.org/gems/%{gemname}-%{version}.gem
-# Source0-md5:	1c05370b503649468b2e3ae50ba23ec0
-# https://github.com/luislavena/rake-compiler/commit/19382092f6ffcbea16aa84
-Patch0:		rubygem-rake-compiler-0.8.3-spec-with-ruby200.patch
-URL:		http://rake-compiler.rubyforge.org/
+Source0:	https://rubygems.org/downloads/%{gemname}-%{version}.gem
+# Source0-md5:	ec3acc332e3c86760b3f4dbdc5351192
+URL:		https://rubygems.org/gems/rake-compiler/
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 %if %{with tests}
@@ -69,7 +67,6 @@ Ten pakiet zawiera dokumentację do modułu języka Ruby rake-compiler.
 
 %prep
 %setup -q -n %{gemname}-%{version}
-%patch0 -p1
 
 %build
 %if %{with tests}
