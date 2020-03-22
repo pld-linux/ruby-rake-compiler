@@ -1,4 +1,4 @@
-    #
+#
 # Conditional build:
 %bcond_with	tests		# build without tests
 
@@ -7,7 +7,7 @@ Summary:	Rake-based Ruby C Extension task generator
 Summary(pl.UTF-8):	Generator zadań Rake'a do budowania rozszerzeń języka Ruby napisanych w C
 Name:		ruby-%{gemname}
 Version:	1.0.7
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	https://rubygems.org/downloads/%{gemname}-%{version}.gem
@@ -67,6 +67,8 @@ Ten pakiet zawiera dokumentację do modułu języka Ruby rake-compiler.
 
 %prep
 %setup -q -n %{gemname}-%{version}
+
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+ruby(\s|$),#!%{__ruby}\1,' bin/rake-compiler
 
 %build
 %if %{with tests}
